@@ -3,7 +3,7 @@
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132');
+MercadoPago\SDK::setAccessToken('APP_USR-1348611840121163-102717-841fa8d67097eee813fae0150de2217d-454737132');
 
 
 
@@ -55,7 +55,7 @@ $preference->save();
 
     <script>
 // Agrega credenciales de SDK
-  const mp = new MercadoPago('TEST-b9c873bb-8647-432b-ab28-0853d2366348', {
+  const mp = new MercadoPago('APP_USR-568ecb44-5167-426a-97ff-28af610fddae', {
         locale: 'es-CO'
   });
 
