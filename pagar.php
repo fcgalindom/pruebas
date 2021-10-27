@@ -1,0 +1,80 @@
+
+<?php
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132');
+
+
+
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = 'Mi producto';
+$item->quantity = 1;
+$item->unit_price = 75.56;
+$preference->items = array($item);
+$preference->save();
+
+
+//curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132" "https://api.mercadopago.com/users/test_user" -d "{'site_id':'MCO'}"
+
+
+//{"id":1007967482,"nickname":"TESTIA5VNPGK","password":"qatest283","site_status":"active","email":"test_user_25142114@testuser.com"}
+
+//{"id":1007983682,"nickname":"TETE8736231","password":"qatest3587","site_status":"active","email":"test_user_72072927@testuser.com"}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+          <!-- <script src="https://www.mercadopago.com.mx/integration/v1/web-payment-checkout.js"
+           data-prepreference
+          
+            
+          ></script> -->
+          <script src="https://sdk.mercadopago.com/js/v2"></script>
+          <button class="cho-container"></button>
+
+          <!-- <form action="/procesar-pago" method="POST">
+  <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+   data-preference-id="$preference->id">
+  </script> -->
+</form>
+
+
+
+    <script>
+// Agrega credenciales de SDK
+  const mp = new MercadoPago('TEST-b9c873bb-8647-432b-ab28-0853d2366348', {
+        locale: 'es-CO'
+  });
+
+  // Inicializa el checkout
+  mp.checkout({
+      preference: {
+          id: '<?php echo $preference->id; ?>'
+      },
+      render: {
+            container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+            label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+      }
+});
+</script>
+
+
+   
+    
+</body>
+</html>
+
+
