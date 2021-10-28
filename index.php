@@ -47,6 +47,8 @@ $preference->save();
     <button class="cho-container"></button>
 
     <form action="/procesar-pago" method="POST">
+
+        
         <script src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js" data-preference-id="1348611840121163">
         </script>
     </form>
@@ -54,15 +56,19 @@ $preference->save();
 
 
     <h1>Aquie enviar</h1>
-    <form method="post" action="https://api.mercadopago.com/checkout/preferences?access_token=TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132">
+    <form method="post"  name="myForm" action="pagar.php">
 
+        <input type="text" name="first_name" id="fname"></p>
 
+       <p><label for="last_name">Last Name:</label>
+         <input type="text" name="last_name" id="lname"></p>
         <button class="" onclick="submitform()"> Enviar </button>
     </form>
 
 
 
     <script>
+        //https://api.mercadopago.com/checkout/preferences?access_token=TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132
         // Agrega credenciales de SDK
         const mp = new MercadoPago('APP_USR-568ecb44-5167-426a-97ff-28af610fddae', {
             locale: 'es-CO'
@@ -90,22 +96,13 @@ $preference->save();
 
 
 <script type="text/javascript">
-    function submitform() {
-        alert("Sending Json");
-        var xhr = new XMLHttpRequest();
-        xhr.open(form.method, form.action, true);
-        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-        var j = {
-            "external_reference": "123456789",
-            "items": [{
-                "title": "Dummy Title",
-                "description": "Dummy description",
-                "category_id": "cat123",
-                "quantity": 1,
-                "unit_price": 10
-            }]
-
-        };
-        xhr.send(JSON.stringify(j));
-    } <
-    script / >
+    var formData = JSON.stringify($("#myForm").serializeArray());
+    $.ajax({
+  type: "POST",
+  url: "serverUrl",
+  data: formData,
+  success: function(){},
+  dataType: "json",
+  contentType : "application/json"
+});
+</script>
