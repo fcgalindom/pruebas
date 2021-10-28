@@ -52,10 +52,12 @@ $preference->save();
     </form>
 
 
+
+    <h1>Aquie enviar</h1>
     <form method="post" action="https://api.mercadopago.com/checkout/preferences?access_token=TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132">
 
 
-        <button class="" onclick="submitform()"> Enviar</button>
+        <button class="" onclick="submitform()"> Enviareeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</button>
     </form>
 
 
