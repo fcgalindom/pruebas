@@ -45,10 +45,10 @@ $preference->save();
           <script src="https://sdk.mercadopago.com/js/v2"></script>
           <button class="cho-container"></button>
 
-          <!-- <form action="/procesar-pago" method="POST">
-  <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-   data-preference-id="$preference->id">
-  </script> -->
+          <form action="/procesar-pago" method="POST">
+  <script src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js"
+   data-preference-id="1348611840121163">
+  </script>
 </form>
 
 
@@ -66,7 +66,7 @@ $preference->save();
       },
       render: {
             container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-            label: 'Pagar2', // Cambia el texto del botón de pago (opcional)
+            label: 'Pagar3', // Cambia el texto del botón de pago (opcional)
       }
 });
 </script>
