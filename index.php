@@ -57,7 +57,7 @@ $preference->save();
     <form method="post" action="https://api.mercadopago.com/checkout/preferences?access_token=TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132">
 
 
-        <button class="" onclick="submitform()"> Enviareeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</button>
+        <button class="" onclick="submitform()"> Enviar </button>
     </form>
 
 
@@ -104,7 +104,8 @@ $preference->save();
                 "quantity": 1,
                 "unit_price": 10
             }]
+
         };
         xhr.send(JSON.stringify(j));
-    }
-<script/>
+    } <
+    script / >
