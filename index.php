@@ -48,7 +48,7 @@ $preference->save();
 
     <form action="/procesar-pago" method="POST">
 
-        
+
         <script src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js" data-preference-id="1348611840121163">
         </script>
     </form>
@@ -56,12 +56,18 @@ $preference->save();
 
 
     <h1>Aquie enviar</h1>
-    <form method="post"  name="myForm" action="pagar.php">
+    <form method="post" name="myForm" action="insertar.php">
 
-        <input type="text" name="first_name" id="fname"></p>
 
-       <p><label for="last_name">Last Name:</label>
-         <input type="text" name="last_name" id="lname"></p>
+
+        <input type="hidden" name="external_reference" id="external_reference">
+        <input type="hidden" name="title" id="title">
+        <input type="hidden" name="description" id="description">}
+        <input type="hidden" name="category_id" id="category_id">
+        <input type="hidden" name="quantity" id="quantity">
+        <input type="hidden" name="unit_price" id="unit_price">
+
+
         <button class="" onclick="submitform()"> Enviar </button>
     </form>
 
@@ -98,11 +104,11 @@ $preference->save();
 <script type="text/javascript">
     var formData = JSON.stringify($("#myForm").serializeArray());
     $.ajax({
-  type: "POST",
-  url: "serverUrl",
-  data: formData,
-  success: function(){},
-  dataType: "json",
-  contentType : "application/json"
-});
+        type: "POST",
+        url: "serverUrl",
+        data: formData,
+        success: function() {},
+        dataType: "json",
+        contentType: "application/json"
+    });
 </script>
