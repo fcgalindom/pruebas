@@ -2,7 +2,7 @@
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('APP_USR-1348611840121163-102717-841fa8d67097eee813fae0150de2217d-454737132');
+MercadoPago\SDK::setAccessToken('TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132');
 
 
 
@@ -10,14 +10,22 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Mi producto';
+$item->title = 'Camisa';
 $item->quantity = 1;
-$item->unit_price = 75.56;
+$item->unit_price = (double)75.00;
 $preference->items = array($item);
+
+$preference->external_reference  = 4545;
 $preference->save();
 
 
-//curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TEST-1348611840121163-102717-3f4a30369639c60dd23d87cdcaa93b7f-454737132" "https://api.mercadopago.com/users/test_user" -d "{'site_id':'MCO'}"
+
+$link  =   $preference->init_point;
+echo 'entro';
+echo $link;
+
+
+//curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TEST-8650852188456390-110216-c5547c88ceaad1186a218f7814a94cd6-454737132" "https://api.mercadopago.com/users/test_user" -d "{'site_id':'MCO'}"
 
 
 //{"id":1007967482,"nickname":"TESTIA5VNPGK","password":"qatest283","site_status":"active","email":"test_user_25142114@testuser.com"}
@@ -26,7 +34,7 @@ $preference->save();
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -38,11 +46,11 @@ $preference->save();
 
 <body>
 
-    <!-- <script src="https://www.mercadopago.com.mx/integration/v1/web-payment-checkout.js"
+     <script src="https://www.mercadopago.com.mx/integration/v1/web-payment-checkout.js"
            data-prepreference
           
             
-          ></script> -->
+          ></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <button class="cho-container"></button>
 
@@ -55,20 +63,24 @@ $preference->save();
 
 
 
-    <h1>Aquie enviar</h1>
-    <form method="post" name="myForm" action="insertar.php">
+
+  <form method="post" action="insertar.php">
 
 
 
-        <input type="hidden" name="external_reference" id="external_reference">
-        <input type="hidden" name="title" id="title">
-        <input type="hidden" name="description" id="description">}
-        <input type="hidden" name="category_id" id="category_id">
-        <input type="hidden" name="quantity" id="quantity">
-        <input type="hidden" name="unit_price" id="unit_price">
+        
+        <input type="hidden" name="external_reference" value="sdsadasd" id="external_reference">
 
 
-        <button class="" onclick="submitform()"> Enviar </button>
+        <input type="hidden" value="sdsadasd" name="title" id="title">
+
+
+        <input type="hidden"   value="sdsadasd" name="description" id="description">
+        <input type="hidden"  value="sdsadasd" name="category_id" id="category_id">
+        <input type="hidden" value="sdsadasd" name="quantity" id="quantity">
+        <input type="hidden"  value="sdsadasd" name="unit_price" id="unit_price">
+
+        <button type="sumbit"> Enviar 2</button>
     </form>
 
 
@@ -97,18 +109,6 @@ $preference->save();
 
 </body>
 
-</html>
+</html> -->
 
 
-
-<script type="text/javascript">
-    var formData = JSON.stringify($("#myForm").serializeArray());
-    $.ajax({
-        type: "POST",
-        url: "serverUrl",
-        data: formData,
-        success: function() {},
-        dataType: "json",
-        contentType: "application/json"
-    });
-</script>

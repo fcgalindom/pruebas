@@ -1,17 +1,18 @@
 <?php
 
 
-$_POST['external_reference'];
+$external_reference = $_POST['external_reference'];
 
-$_POST['title'];
 
-$_POST['description'];
 
-$_POST['category_id'];
 
-$_POST['quantity'];
+$title = $_POST['title'];
+$description  = $_POST['description'];
+$category_id =   $_POST['category_id'];
 
-$_POST['unit_price'];
+$quantity = $_POST['quantity'];
+
+$unit_price =  $_POST['unit_price'];
 
 
 
